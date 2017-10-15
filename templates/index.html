@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Stream</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 align="center">Stream</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-xs-center text-lg-center">
+                            <img id="bg" src="{{ url_for('video_feed') }}" class="img-responsive">
+                        </div>
+                    </div>
+               </div>
+
+
+                <form action="{{ url_for('test') }}" method="post" align="center">
+                    {% if btn1 %}
+                        <button type=submit class="btn btn-danger" name="lamp" value="off">{{ message }}
+                    {% else %}
+                        <button type=submit class="btn btn-success" name="lamp" value="on">{{ message }}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
