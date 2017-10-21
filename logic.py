@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 class PrinterGPIO():
-    def __init__(self, gpio = 15, bcm = True):
+    def __init__(self, gpio = 18, bcm = True):
         self.gpio = gpio
 
         if bcm:
@@ -11,8 +11,8 @@ class PrinterGPIO():
 
         GPIO.setup(self.gpio, GPIO.OUT)
 
-    def setNewState(self, oldstate):
-        GPIO.output(self.gpio, not oldstate)
+    def setNewState(self, newstate):
+        GPIO.output(self.gpio, newstate)
 
     def __del__(self):
         GPIO.cleanup()

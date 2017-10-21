@@ -1,8 +1,7 @@
 import cv2
-import base64
 
 class VideoCamera():
-    def __init__(self, camera = 0):
+    def __init__(self, camera = -1):
         self.video = cv2.VideoCapture(camera)
 
     def __del__(self):
@@ -13,7 +12,7 @@ class VideoCamera():
         if success:
             return image
         else:
-            raise(Exception('Image not found'))
+            raise(Exception('Frame not found'))
 
     def get_bytes(self):
         image = self.get_frame()
@@ -21,7 +20,7 @@ class VideoCamera():
         if ret:
             return jpeg.tobytes()
         else:
-            raise(Exception('Image not found'))
+            raise(Exception('Bytes not found'))
 
     def get_base64(self):
         return b'--frame\r\n' + b'Content-Type: image/jpeg\r\n\r\n' + self.get_bytes() + b'\r\n\r\n'
