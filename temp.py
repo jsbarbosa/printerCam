@@ -9,4 +9,6 @@ while True:
         else:
             print("Cannot read video capture object from %s. Quitting...")% capture
             break
-        cv2.waitKey(30)
+        val = cv2.waitKey(300)
+        if val == 27:
+            break
